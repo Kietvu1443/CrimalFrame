@@ -1,0 +1,382 @@
+/* --- 1. CÀI ĐẶT CƠ BẢN (RESET & VARIABLES) --- */
+:root {
+    --primary-color: #1e293b;
+    /* Màu xanh đen (Slate 800) */
+    --secondary-color: #3b82f6;
+    /* Màu xanh dương (Blue 500) */
+    --danger-color: #ef4444;
+    /* Màu đỏ (Red 500) */
+    --bg-color: #f8fafc;
+    /* Màu nền xám nhạt */
+    --border-color: #cbd5e1;
+    /* Màu viền */
+    --text-color: #334155;
+    /* Màu chữ chính */
+    --white: #ffffff;
+    --radius: 8px;
+    /* Độ bo tròn góc */
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    margin: 1.5rem 0;
+}
+
+footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+}
+
+/* --- 2. HEADER --- */
+header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+.header-container {
+    max-width: 1200px;
+    max-height: 120px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 2rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.nav-btn.active {
+    color: #1d4ed8;
+    border-bottom: 2px solid #1d4ed8;
+}
+
+.nav-btn:hover:not(.active) {
+    background-color: #f1f5f9;
+    border-radius: 4px;
+}
+
+/* --- 3. LAYOUT CHÍNH --- */
+.main-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h1.page-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* Cột trái gấp đôi cột phải */
+    gap: 2rem;
+}
+
+/* --- 4. FORM (BÊN TRÁI) --- */
+.card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Upload Box Styles */
+.upload-box {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius);
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #f8fafc;
+    transition: background 0.2s;
+}
+
+.upload-second {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius);
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #f8fafc;
+    transition: background 0.2s;
+}
+
+.upload-second:hover {
+    background-color: #f1f5f9;
+    border-color: var(--secondary-color);
+}
+
+
+
+.upload-box:hover {
+    background-color: #f1f5f9;
+    border-color: var(--secondary-color);
+}
+
+/* Nút bấm */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-danger {
+    background-color: white;
+    color: var(--danger-color);
+    border: 1px solid #fecaca;
+}
+
+/* --- 5. XỬ LÝ ẨN DANH (CSS Logic) --- */
+.anonymous-toggle {
+    background-color: #eff6ff;
+    border: 1px solid #dbeafe;
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.anonymous-toggle label {
+    margin: 0;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+
+.anonymous-toggle input {
+    padding: 0.75rem;
+    resize: none;
+}
+
+/* Mô tả(descripton) */
+.Description {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.Description>div:first-child {
+    grid-column: 1 / -1;
+}
+
+.Description textarea {
+    width: 100%;
+    padding: 0.75rem;
+    resize: none;
+}
+
+.Description i {
+    font-size: 2rem;
+
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+}
+
+.Description span {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+
+
+
+/* Class này sẽ được JS thêm vào khi chọn ẩn danh */
+.disabled-section {
+    opacity: 0.5;
+    pointer-events: none;
+    /* Ngăn chặn click chuột */
+    filter: grayscale(100%);
+    user-select: none;
+}
+
+/* --- 6. SIDEBAR (BÊN PHẢI) --- */
+
+
+
+
+.sidebar-box {
+    margin-bottom: 1.5rem;
+}
+
+.hotline-box {
+    background-color: #fef2f2;
+    border-left: 4px solid var(--danger-color);
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.hotline-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--danger-color);
+    margin: 0.5rem 0;
+}
+
+.sidebar-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 1rem;
+}
+
+ul.link-list {
+    list-style: none;
+}
+
+ul.link-list li {
+    margin-bottom: 0.75rem;
+}
+
+ul.link-list a {
+    color: #2563eb;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+ul.link-list a:hover {
+    text-decoration: underline;
+}
+
+/* --- 7. RESPONSIVE (Mobile) --- */
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        /* Chuyển về 1 cột */
+    }
+
+    /* Đảo thứ tự: Form lên trên, Sidebar xuống dưới (Mặc định HTML là vậy rồi) */
+
+    .nav-btn:not(.active) {
+        display: none;
+        /* Ẩn bớt menu phụ trên mobile nếu cần */
+    }
+}

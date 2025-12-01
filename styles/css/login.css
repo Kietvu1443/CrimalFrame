@@ -1,0 +1,319 @@
+/* Thiết lập chung */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 35px;
+    padding-bottom: 20px;
+    position: relative;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+/* HEADER NAVIGATION */
+.header-nav {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.nav-icon {
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.nav-icon:hover {
+    color: #b71c1c;
+}
+
+#backButton {
+    display: none;
+}
+
+/* Tiêu đề */
+.screen-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    margin-top: 30px;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #b71c1c;
+}
+
+/* Icon bên trái */
+.input-group .icon-left {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-style: normal;
+    pointer-events: none;
+    font-size: 20px;
+}
+
+.input-group .icon-left[data-icon="user"]::before {
+    content: '👤';
+}
+
+.input-group .icon-left[data-icon="lock"]::before {
+    content: '🔒';
+}
+
+.input-group .icon-left[data-icon="email"]::before {
+    content: '📧';
+}
+
+.input-group .icon-left[data-icon="phone"]::before {
+    content: '📱';
+}
+
+/* Links Row (Dòng chứa Tài khoản khách & Quên mật khẩu) */
+.login-links-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -15px;
+    margin-bottom: 30px;
+}
+
+.guest-account-link,
+.forgot-password-link {
+    font-size: 14px;
+    color: #b71c1c;
+    text-decoration: none;
+    padding: 0;
+    font-weight: bold;
+}
+
+/* Buttons */
+.main-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #b71c1c;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.main-button:hover {
+    background-color: #a01515;
+}
+
+/* Liên kết & Switch Screen */
+.switch-screen-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.switch-screen-link span {
+    color: #777;
+}
+
+.switch-screen-link a {
+    color: #b71c1c;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+/* Chuyển đổi màn hình */
+.screen {
+    display: none;
+    padding: 0 10px;
+    overflow-y: auto;
+    max-height: 550px;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* FOOTER */
+.footer-nav {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+    text-decoration: none;
+    flex-basis: 30%;
+}
+
+.nav-item i {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.nav-item i[data-icon="manual"]::before {
+    content: 'ℹ️';
+}
+
+.nav-item i[data-icon="faq"]::before {
+    content: '❓';
+}
+
+.nav-item i[data-icon="hotline"]::before {
+    content: '📞';
+}
+
+.privacy-policy {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #b71c1c;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.version {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+/* Style cho Chính sách */
+.content-section {
+    padding: 10px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.content-section h3 {
+    font-size: 16px;
+    color: #b71c1c;
+    margin-top: 20px;
+}
+
+/* --- STYLES CHO HỘP THOẠI THÔNG BÁO --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    width: 80%;
+    max-width: 320px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.modal-content h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.modal-button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    /* Khoảng cách giữa hai nút */
+}
+
+.modal-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #b71c1c;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.modal-button:hover {
+    background-color: #a01515;
+}
+
+/* Nút phụ (Để sau) */
+.modal-button.secondary {
+    background-color: #f0f0f0;
+    color: #555;
+    font-weight: normal;
+}
+
+.modal-button.secondary:hover {
+    background-color: #e0e0e0;
+}

@@ -1,0 +1,158 @@
+    /* Thiết lập chung */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .faq-container {
+        width: 100%;
+        max-width: 480px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    /* Header (Thanh điều hướng trên cùng) */
+    .header-top {
+        padding: 15px 15px 0 15px;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .back-icon {
+        font-size: 24px;
+        color: #333;
+        text-decoration: none;
+        margin-right: 15px;
+    }
+
+    .screen-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Thanh Tìm kiếm */
+    .search-bar {
+        padding: 15px;
+    }
+
+    .search-input-group {
+        position: relative;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        padding-right: 40px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        box-sizing: border-box;
+        background-color: #f9f9f9;
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #888;
+        font-size: 20px;
+    }
+
+    /* Thanh Tab */
+    .tab-bar {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 0 15px 10px 15px;
+        border-bottom: 1px solid #eee;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .tab-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab-item {
+        padding: 8px 15px;
+        margin-right: 8px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 15px;
+        color: #555;
+        background-color: #eee;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+    .tab-item.active {
+        background-color: #b71c1c;
+        color: white;
+        font-weight: bold;
+    }
+
+    /* Nội dung FAQ */
+    .faq-content {
+        padding: 0 15px;
+        padding-bottom: 50px;
+    }
+
+    .faq-tab-pane {
+        display: none;
+        padding-top: 20px;
+    }
+
+    .faq-tab-pane.active {
+        display: block;
+    }
+
+    .faq-item {
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+        cursor: pointer;
+    }
+
+    /* Tiêu đề câu hỏi */
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Nội dung câu trả lời */
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        padding-top: 0;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    /* Icon mũi tên */
+    .expand-icon {
+        font-size: 18px;
+        transform: rotate(0deg);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.expanded .expand-icon {
+        transform: rotate(90deg);
+    }
+
+    .faq-item.expanded .faq-answer {
+        max-height: 500px;
+        padding-top: 10px;
+    }

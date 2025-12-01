@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tố Giác Tội Phạm Trực Tuyến</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="./styles/css/index.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <a href="login.html" style="text-decoration: none;" class="logo-icon"><i
+                        class="ph ph-arrow-circle-left"></i></a>
+                <img class="logo-icon" src="./styles/images/logo_v2.webp">
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-btn active" style="text-decoration: none;">TỐ GIÁC TỘI PHẠM</a>
+                <a href="wanted_list.html" class="nav-btn" style="text-decoration: none;">TỘI PHẠM TRUY NÃ</a>
+            </nav>
+
+            <div style="width: 40px;"></div> <!-- Center -->
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-container">
+        <h1 class="page-title">Tố Giác Tội Phạm Trực Tuyến</h1>
+
+        <div class="content-grid">
+
+            <!-- CỘT TRÁI: FORM -->
+            <div class="card">
+                <form id="crimeForm">
+
+                    <!-- Thông tin sự việc -->
+                    <div class="form-group">
+                        <label>Chọn loại sự kiện</label>
+                        <select id="incidentType" required>
+                            <option value="">-- Chọn loại tội phạm --</option>
+                            <option value="trom-cap">Trộm cắp tài sản</option>
+                            <option value="lua-dao">Lừa đảo chiếm đoạt tài sản</option>
+                            <option value="bao-luc">Bạo lực / Cố ý gây thương tích</option>
+                            <option value="khac">Khác</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ngày tháng xảy ra</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Địa điểm / Địa chỉ</label>
+                        <input type="text" id="address" placeholder="Số nhà, đường, phường/xã..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Họ tên tội phạm(Nếu có):</label>
+                        <input type="text" id="criminalName" placeholder="Họ tên tội phạm">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Đặt điểm nhận dạng(Nếu có):</label>
+                        <input type="text" id="idenity" placeholder="Đặc điểm nhận dạng tội phạm">
+                    </div>
+
+                    <hr>
+
+                    <!-- Thông tin cá nhân của người dùng (sẽ bị blur nếu được tick) -->
+                    <div id="personalInfoSection">
+                        <div class="form-group">
+                            <label>Họ và tên người tố giác</label>
+                            <input type="text" id="fullname">
+                        </div>
+                        <div class="form-group">
+                            <label>CCCD / CMND</label>
+                            <input type="text" id="idCard">
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại liên hệ</label>
+                            <input type="tel" id="phone">
+                        </div>
+                    </div>
+
+                    <!-- Checkbox Ẩn danh -->
+                    <div class="anonymous-toggle">
+                        <input type="checkbox" id="isAnonymous">
+                        <label for="isAnonymous">
+                            <i class="ph ph-lock-key"></i> Tôi muốn báo cáo ẩn danh (Thông tin cá nhân sẽ được bảo mật)
+                        </label>
+                    </div>
+
+                    <!-- Mô tả & Upload -->
+                    <div class="Description">
+                        <div>
+                            <label>Mô tả chi tiết sự việc</label>
+                            <textarea id="description" rows="6" placeholder="Mô tả chi tiết..." required></textarea>
+                        </div>
+
+                        <div>
+                            <label>Ảnh chân dung đối tượng</label>
+                            <div class="upload-box" onclick="document.getElementById('fileInput').click()">
+                                <i class="ph ph-upload-simple"></i>
+                                <span id="fileLabel">Nhấn để chọn tệp</span>
+                                <input type="file" id="fileInput" hidden multiple>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label>Thêm ảnh hoặc video</label>
+                            <div class="upload-second" onclick="document.getElementById('fileInput2').click()">
+                                <i class="ph ph-upload-simple"></i>
+                                <span id="fileLabel2">Nhấn để chọn tệp</span>
+                                <input type="file" id="fileInput2" hidden multiple>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nút bấm -->
+                    <div class="btn-container">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="ph ph-paper-plane-right"></i> GỬI BÁO CÁO
+                        </button>
+                        <button type="button" class="btn btn-danger" onclick="resetForm()">
+                            <i class="ph ph-trash"></i> XÓA
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- CỘT PHẢI: SIDEBAR -->
+            <aside>
+                <!-- Hotline -->
+                <div class="hotline-box sidebar-box">
+                    <div style="display: flex; gap: 10px;">
+                        <i class="ph ph-phone-call" style="font-size: 24px; color: var(--danger-color);"></i>
+                        <div>
+                            <h3 style="color: #b91c1c; margin-bottom: 5px;">Hotline khẩn cấp</h3>
+                            <p class="hotline-number">113</p>
+                            <p style="font-size: 0.85rem; color: #991b1b;">Những trường hợp khó khăn hay khẩn cấp hãy
+                                gọi đến số 113, chúng tôi sẽ nỗ lực kết nối tới các cơ quan gần nhất để giúp đỡ bạn.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hướng dẫn -->
+                <div class="card sidebar-box">
+                    <div class="sidebar-title">
+                        <i class="ph ph-info"></i> Bạn nên làm gì ?
+                    </div>
+                    <ol style="padding-left: 1.2rem; font-size: 0.9rem; color: #475569;">
+                        <li style="margin-bottom: 0.5rem;"><strong>Giữ an toàn:</strong> Ưu tiên thoát khỏi nguy hiểm
+                            trước.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Ghi nhớ địa điểm:</strong> Cố gắng nhớ tên đường.
+                        </li>
+                        <li><strong>Bằng chứng:</strong> Chụp ảnh/video nếu có thể.</li>
+                    </ol>
+                </div>
+
+                <!-- Thông tin chú ý -->
+                <div class="card sidebar-box">
+                    <div class="sidebar-title">
+                        <i class="ph ph-warning-circle"></i> Thông tin cần chú ý
+                    </div>
+                    <ul class="link-list">
+                        <li><a href="./Link/thu_doan_lưa_dao.html"><i class="ph ph-arrow-square-out"></i> Các thủ đoạn
+                                lừa đảo mới</a></li>
+                        <li><a href="#"><i class="ph ph-arrow-square-out"></i> Tin tức an ninh trật tự</a></li>
+                        <li><a href="https://thuvienphapluat.vn"><i class="ph ph-arrow-square-out"></i> Tra cứu luật
+                                pháp 2025</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        Phiên bản hiện tại 0.0.2
+    </footer>
+    <script src="./styles/js/db.js"></script>
+    <script src="./styles/js/code.js"></script>
+
+</body>
+
+</html>

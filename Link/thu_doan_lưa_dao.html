@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Những thủ đoạn lừa đảo</title>
+</head>
+<body>
+    <style>
+   body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #1a1a1a;
+            background-color: #f7f7f7;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        .sidebar {
+            width: 280px; /* Độ rộng cột bên trái */
+            padding: 30px 0 30px 30px;
+            border-right: 1px solid #e0e0e0;
+            background-color: #f9f9f9;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px 50px 50px 50px;
+        }
+
+        /* Phong cách cho menu bên trái */
+        .sidebar-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .sidebar-menu a {
+            display: block;
+            padding: 8px 15px 8px 10px;
+            margin: 2px 0;
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9em;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .sidebar-menu a:hover {
+            background-color: #e6e6e6;
+            border-left: 3px solid #ccc;
+        }
+        .sidebar-menu .active {
+            font-weight: 600;
+            color: #000;
+            background-color: #e6f2fa; 
+            border-left: 3px solid #0078d4; 
+        }
+        
+        /* Breadcrumb (Đường dẫn) */
+        .breadcrumb {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .breadcrumb a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tiêu đề chính */
+        .main-title {
+            font-size: 2.2em;
+            font-weight: 300; 
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        /* Phần tabs (Mạo danh/Lừa đảo) */
+        .tabs {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+            display: flex;
+        }
+        .tab-item {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+            color: #555;
+            margin-right: 20px;
+            transition: border-bottom 0.2s;
+        }
+        .tab-item.active-tab {
+            color: #000;
+            border-bottom: 3px solid #0078d4; 
+        }
+
+        /* Nội dung chi tiết */
+        .article-body p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .article-body h3 {
+            font-size: 1.2em;
+            margin-top: 25px;
+            color: #333;
+        }
+        
+        /* Ẩn nội dung tab không được chọn */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active-content {
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <div class="sidebar-title">Thông tin cần chú ý</div>
+        <div class="sidebar-menu">
+            <a href="#" class="active">Tin tức An ninh trật tự</a> 
+            
+            <a href="https://thuvienphapluat.vn">Tra cứu luật pháp 2025</a> 
+            
+            </div>
+    </div>
+
+    <div class="content">
+      
+
+        <h1 class="main-title">7 thủ đoạn mạo danh và lừa đảo mạng phổ biến</h1>
+
+        <div class="tabs">
+            <div class="tab-item active-tab" data-tab="tab-maodanh">Mạo danh</div>
+            <div class="tab-item" data-tab="tab-luadao">Lừa đảo</div>
+        </div>
+
+        <div class="article-body">
+            
+            <div id="tab-maodanh" class="tab-content active-content">
+                <p><strong>Bộ Công an</strong> khuyến cáo người dân nâng cao cảnh giác với các chiêu thức <b><i>mạo danh</i></b> trên không gian mạng và các phương tiện truyền thông xã hội.</p>
+
+                <h3>Thủ đoạn mạo danh phổ biến:</h3>
+                <ul>
+                    <li><strong>Mạo danh cơ quan công an, viện kiểm sát</strong></li>
+                       <p>Kẻ gian giả danh cán bộ thuộc cơ quan công an, viện kiểm sát, tòa án gọi điện đe dọa nạn nhân 
+                    liên quan đến các vụ đang điều tra, như rửa tiền, buôn bán trái phép chất ma túy.</p>
+                       <p>Chúng sau đó yêu cầu nạn nhân chứng minh sự trong sạch bằng cách chuyển tiền vào tài khoản chỉ định, hoặc tải ứng dụng giả mạo để chiếm quyền
+                     điều khiển thiết bị, cung cấp thông tin đăng nhập tài khoản ngân hàng, mã OTP để rút tiền.</p>    
+
+                    <li><strong>Mạo danh cơ sở giáo dục</strong></li>
+                       <p>Đây là thủ đoạn được ghi nhận nhiều thời gian qua. Kẻ gian giả nhân viên cơ sở giáo dục, gọi điện cho sinh viên hoặc phụ huynh, 
+                    thông báo về việc đủ điều kiện nhận học bổng du học nước ngoài, được hoàn tiền học phí hoặc có thể tham gia trại hè thuộc các trường công an, quân đội.</p>
+                       <p>Chúng yêu cầu nạn nhân thực hiện nhiệm vụ online, hoặc khi đăng ký học bổng, hoàn tiền học phí phải có bằng chứng để chứng minh tài chính hoặc đặt cọc ngay 
+                    lập tức để đảm bảo giữ học bổng, từ đó ép nạn nhân chuyển tiền gấp hoặc bấm vào liên kết độc hại để đánh cắp thông tin chi tiết ngân hàng và mã xác thực OTP.</p>
+                </ul>
+            </div>
+            
+            <div id="tab-luadao" class="tab-content">
+                <p><b>Bộ Công an</b> khuyến cáo người dân nâng cao cảnh giác với các chiêu thức <b><i>lừa đảo</i></b> trên không gian mạng và các phương tiện truyền thông xã hội.</p>
+                <h3>Các hình thức lừa đảo khác:</h3>
+                <ul>
+                    <li><strong>Lừa đảo thu hồi vốn treo</strong></li>
+                       <p>Tự xưng là cán bộ thuộc lực lượng công an, hội luật sư, kẻ gian quảng cáo dịch vụ "thu hồi vốn treo" - tức giúp lấy lại tiền của người dân bị lừa qua mạng trước đó.</p>
+                       <p>Chúng tạo video, hình ảnh, trang web, ứng dụng và tài liệu giả để lấy lòng tin, sau đó đưa ra nhiều lý do để người dân chuyển khoản với số tiền lớn, từ đó thực hiện hành vi chiếm đoạt tài sản.</p>
+
+                    <li><strong>Lừa đầu tư trên nền tảng giả mạo</strong></li>
+                       <p>Một hình thức phổ biến là giả danh nhân viên của sàn thương mại điện tử, sàn đầu tư ngoại hối, tiền ảo, tài chính quốc tế gọi điện thoại cho nạn nhân kêu gọi đầu tư lợi nhuận cao.</p>  
+                       <p>Theo đại diện A05, kẻ gian sử dụng các trang web, nền tảng giả mạo và hội nhóm mạng xã hội để thao túng nhà đầu tư, chỉnh sửa lệnh cho nạn nhân dễ dàng thắng những khoản đầu tư nhỏ ban đầu. Khi họ đổ vào 
+                    khoản tiền lớn, chúng sẽ đánh "cháy" tài khoản hoặc đánh sập sàn.</p>
+                  
+                    <li><strong>Lừa đảo tình cảm trục lợi tài chính</strong></li>
+                        <p>Đây là hình thức được cảnh báo thời gian dài, nhưng vẫn có nhiều người mắc bẫy. Kẻ gian giả danh các cá nhân có ngoại hình đẹp, tạo dựng lòng tin thông qua tin nhắn trên mạng xã hội, ứng dụng OTT.
+                     Chúng lấy lý do để không gặp mặt trực tiếp, sau đó lừa nạn nhân tham gia vào ứng dụng, trang web cờ bạc hoặc đầu tư giả mạo.</p>
+                        <p>Người dùng ban đầu có thể thắng số tiền nhỏ và rút được tiền về để tạo lòng tin. Sau đó, họ bị thúc giục nạp thêm để gia tăng lợi nhuận. Khi số tiền đủ lớn, kẻ gian lấy lý do để khóa tài khoản, 
+                    yêu cầu nạp thêm nếu muốn mở khóa, hoặc hứa hẹn cho rút tiền nhằm chiếm toàn bộ tài sản và cắt đứt liên lạc.</p>
+
+                    <li><strong>Lừa đảo thanh toán dịch vụ</strong></li>
+                        <p>Hình thức này xuất hiện nhiều năm, nhưng liên tục thay đổi kịch bản khiến người dùng mắc bẫy. Ví dụ, trong những ngày hè nắng nóng, ông Lục cho biết kẻ gian có thể mạo danh công ty điện lực dọa cắt điện, khiến người dùng dễ sập bẫy.</p>
+                        <p>Ngoài ra, chúng có thể giả danh công ty cấp thoát nước, viễn thông và gọi điện, nhắn tin yêu cầu thanh toán tiền dịch vụ định kỳ, hoặc cập nhật thông tin.</p>
+                        <p><i>"Chúng dọa sẽ ngừng cung cấp dịch vụ nếu không làm theo yêu cầu, sau đó yêu cầu nạn nhân cài ứng dụng giả mạo, từ đó đánh cắp thông tin cá nhân, tài khoản ngân hàng để chiếm đoạt tài sản"</i>, đại diện Bộ Công an khuyến cáo.</p>
+
+                    <li><strong>Lừa đảo mua bán và du lịch trực tuyến</strong></li>    
+                        <p>Lợi dụng nhu cầu mua bán, du lịch của nhiều người dùng, kẻ gian giả danh người bán và đại lý du lịch hợp pháp bằng cách tạo trang web và trang mạng xã hội giả mạo, đưa ra ưu đãi hấp dẫn để dụ dỗ nạn nhân đặt cọc.</p>
+                        <p>Sau khi nhận tiền đặt cọc, chúng gửi email hoặc tin nhắn thông báo lỗi chuyển khoản và yêu cầu thanh toán thêm, sau đó chặn liên lạc và chiếm đoạt tiền.</p>
+  
+                    </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- JavaScript để xử lý chuyển đổi Tabs ---
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabs = document.querySelectorAll('.tab-item');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Lấy ID của nội dung tương ứng
+                const targetId = tab.getAttribute('data-tab');
+
+                // Xóa trạng thái active khỏi tất cả các tab
+                tabs.forEach(item => item.classList.remove('active-tab'));
+                
+                // Thêm trạng thái active cho tab được click
+                tab.classList.add('active-tab');
+
+                // Ẩn tất cả nội dung
+                contents.forEach(content => content.classList.remove('active-content'));
+                
+                // Hiển thị nội dung tương ứng
+                document.getElementById(targetId).classList.add('active-content');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

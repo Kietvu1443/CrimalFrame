@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tố Giác Tội Phạm Trực Tuyến</title>
+    <link rel="stylesheet" href="./styles/css/home.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="brand">Tố Giác Tội Phạm Trực Tuyến</h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="#" class="is-active">Trang chủ</a></li>
+                    <li><a href="#members">Thành viên</a></li>
+                    <li><a href="#project-teaser">Dự án</a></li>
+                    <li><a href="#">Về chúng tôi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero__content">
+            <h1 class="hero__title">Chào mừng đến với Pointed Team</h1>
+            <p class="hero__subtitle">Chúng tôi là những sinh viên đam mê công nghệ, mang cái tên <span
+                    style="color: #60a5fa; font-weight: bold;">Pointed</span> – tinh thần
+                <span style="color: red; font-weight: bold;">Never settle</span>.
+                Luôn tiến lên và tiến bộ, tạo giá trị, và sẵn sàng đóng góp cho cộng đồng.
+            </p>
+            <div class="hero__actions">
+                <a href="#members" class="btn btn--outline">Xem thành viên</a>
+                <a href="login.html" class="btn btn--primary">Xem dự án</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="section" id="members">
+            <h2 class="section__title">Danh sách các thành viên</h2>
+
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <!-- Nghĩa -->
+                    <div class="swiper-slide">
+                        <article class="card">
+                            <a class="card__media" href="./HuuNghia/intro.html">
+                                <img src="./styles/images/profile_pic_v2.jpg" alt="Ảnh Nghĩa" />
+                            </a>
+                            <div class="card__body">
+                                <h3 class="card__title">
+                                    <a href="./HuuNghia/intro.html">Bao Phi Vũ Hữu Nghĩa</a>
+                                </h3>
+                                <p>Xin chào, mình là Nghĩa, sinh viên Đại học Bình Dương.</p>
+                                <p class="card__hint">Nhấp vào profile để biết thêm thông tin.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Thư -->
+                    <div class="swiper-slide">
+                        <article class="card">
+                            <a class="card__media" href="./nthu/profile.html">
+                                <img src="./styles/images/face_2.jpg" alt="Ảnh Thư" />
+                            </a>
+                            <div class="card__body">
+                                <h3 class="card__title">
+                                    <a href="./nthu/profile.html">Lê Ngọc Thư</a>
+                                </h3>
+                                <p>Xin chào, mình là Thư – sinh viên Đại học Bình Dương.</p>
+                                <p class="card__hint">Nhấp vào profile để biết thêm thông tin.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Huy Cường -->
+                    <div class="swiper-slide">
+                        <article class="card">
+                            <a class="card__media" href="./HuyCuong/huycuong.html">
+                                <img src="./styles/images/profile_pic.jpg" alt="Ảnh Huy Cường" />
+                            </a>
+                            <div class="card__body">
+                                <h3 class="card__title">
+                                    <a href="./HuyCuong/huycuong.html">Đỗ Huy Cường</a>
+                                </h3>
+                                <p>
+                                    Mình là sinh viên năm 2 Trường Đại học Bình Dương, theo học CNTT
+                                    và định hướng trở thành lập trình viên.
+                                </p>
+                                <p class="card__hint">Nhấp vào profile để biết thêm thông tin.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Kiệt -->
+                    <div class="swiper-slide">
+                        <article class="card">
+                            <a class="card__media" href="./Tkiet/Page1.html">
+                                <img src="./styles/images/profile_pic.webp" alt="Ảnh Vũ Tuấn Kiệt" />
+                            </a>
+                            <div class="card__body">
+                                <h3 class="card__title">
+                                    <a href="./Tkiet/Page1.html">Vũ Tuấn Kiệt</a>
+                                </h3>
+                                <p>
+                                    Xin chào, mình là Kiệt – sinh viên năm hai tại Đại học Bình
+                                    Dương.
+                                </p>
+                                <p class="card__hint">Nhấp vào profile để biết thêm thông tin.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <section class="section project-teaser">
+            <div class="project-teaser__content" id="project-teaser">
+                <h2 class="section__title">Dự án hiện tại</h2>
+                <h3 class="project-title">Tố Giác Tội Phạm Trực Tuyến</h3>
+                <p class="project-desc">Nền tảng giúp người dân báo cáo các hành vi vi phạm pháp luật một cách nhanh
+                    chóng, an toàn và bảo mật. Chung tay xây dựng một xã hội văn minh.</p>
+                <a href="login.html" class="btn btn--primary">Truy cập Ứng dụng</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">© 2025 Nhóm Pointed</div>
+    </footer>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>

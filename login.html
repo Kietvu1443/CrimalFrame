@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="styles/css/login.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="header-nav">
+            <a href="#" class="nav-icon" id="backButton">←</a>
+
+            <a href="home.html" class="nav-icon" id="homeButton">🏠</a>
+        </div>
+
+        <div class="screen active" id="loginScreen">
+            <h2 class="screen-title">Đăng nhập</h2>
+
+            <div class="input-group">
+                <span class="icon-left" data-icon="user"></span>
+                <input type="text" id="usernameInput" placeholder="Tên đăng nhập hoặc Email">
+            </div>
+
+            <div class="input-group">
+                <span class="icon-left" data-icon="lock"></span>
+                <input type="password" id="passwordInput" placeholder="Mật khẩu">
+            </div>
+
+            <div class="login-links-row">
+                <a href="index.html" class="guest-account-link" id="guestAccountLink">Sử dụng tài khoản khách</a>
+
+                <a href="#" id="forgotPasswordLink" class="forgot-password-link">Quên mật khẩu?</a>
+            </div>
+
+            <button class="main-button" id="loginSubmitButton">Đăng nhập</button>
+
+            <div class="footer-nav">
+                <a href="hdsd.html" class="nav-item">
+                    <i data-icon="manual"></i>
+                    Hướng dẫn sử dụng
+                </a>
+                <a href="Q&A.html" class="nav-item">
+                    <i data-icon="faq"></i>
+                    Câu hỏi thường gặp
+                </a>
+                <a href="#" class="nav-item" id="hotlineLink">
+                    <i data-icon="hotline"></i>
+                    Hotline hỗ trợ
+                </a>
+            </div>
+            <a href="#" class="privacy-policy" id="privacyLink">Chính sách quyền riêng tư</a>
+            <span class="version">Phiên bản 2.2.4</span>
+        </div>
+
+        <div class="screen" id="forgotPasswordScreen">
+            <h2 class="screen-title">Quên mật khẩu</h2>
+
+            <div class="input-group">
+                <span class="icon-left" data-icon="user"></span>
+                <input type="text" id="forgotUsernameInput" placeholder="Tên đăng nhập">
+            </div>
+
+            <div class="input-group">
+                <span class="icon-left" data-icon="email"></span>
+                <input type="email" id="forgotEmailInput" placeholder="Email">
+            </div>
+
+            <button class="main-button" id="sendRequestButton">Gửi yêu cầu</button>
+
+            <p class="switch-screen-link">
+                <span>Bạn đã có tài khoản?</span>
+                <a href="#" id="loginLink">Đăng nhập</a>
+            </p>
+        </div>
+
+        <div class="screen" id="privacyScreen">
+            <h2 class="screen-title">Chính sách quyền riêng tư</h2>
+            <div class="content-section">
+                <p><strong>Ngày có hiệu lực:</strong> 28/11/2025</p>
+                <p>Chúng tôi cam kết bảo vệ quyền riêng tư của bạn. Chính sách này mô tả cách chúng tôi thu thập, sử
+                    dụng và chia sẻ thông tin cá nhân của bạn khi bạn sử dụng dịch vụ của chúng tôi.</p>
+
+                <h3>1. Thông tin chúng tôi thu thập</h3>
+                <ul>
+                    <li>Thông tin đăng ký: Tên, Email, Số điện thoại.</li>
+                    <li>Dữ liệu sử dụng: Lịch sử đăng nhập, thiết bị sử dụng (địa chỉ IP).</li>
+                </ul>
+
+                <h3>2. Mục đích sử dụng thông tin</h3>
+                <p>Chúng tôi sử dụng thông tin thu thập được để:</p>
+                <ul>
+                    <li>Xác thực và cấp quyền truy cập vào tài khoản của bạn.</li>
+                    <li>Gửi thông báo quan trọng liên quan đến dịch vụ.</li>
+                    <li>Nâng cao chất lượng dịch vụ và trải nghiệm người dùng.</li>
+                </ul>
+
+                <h3>3. Chia sẻ dữ liệu</h3>
+                <p>Chúng tôi cam kết không bán hoặc cho thuê thông tin cá nhân của bạn cho bên thứ ba. Dữ liệu chỉ được
+                    chia sẻ khi có sự đồng ý của bạn hoặc theo yêu cầu của pháp luật.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="errorModal">
+        <div class="modal-content">
+            <h3>Thông báo</h3>
+            <p id="errorMessage">Tên đăng nhập và mật khẩu không được để trống</p>
+            <button class="modal-button" id="closeErrorModalButton" style="width: 100%;">Đóng</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="hotlineModal">
+        <div class="modal-content">
+            <h3>Thông báo</h3>
+            <p id="hotlineMessage">Bạn cần hỗ trợ? Gọi ngay đến tổng đài @POINTED để được trợ giúp</p>
+            <div class="modal-button-group">
+                <button class="modal-button secondary" id="hotlineLaterButton">Để sau</button>
+                <button class="modal-button" id="hotlineCallButton">Gọi ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <h3>Thành công!</h3>
+            <p id="successMessage">Yêu cầu khôi phục mật khẩu đã được gửi. Vui lòng kiểm tra email của bạn.</p>
+            <button class="modal-button" id="closeSuccessModalButton" style="width: 100%;">Đóng</button>
+        </div>
+    </div>
+    <script src="styles/js/login.js"></script>
+</body>
+
+</html>

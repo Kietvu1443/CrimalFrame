@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Đối Tượng - Tố Giác Tội Phạm</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="./styles/css/wanted_detail.css">
+    <link rel="stylesheet" href="./styles/css/wanted.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <a href="home.html" style="text-decoration: none;" class="logo-icon"><i
+                        class="ph ph-arrow-circle-left"></i></a>
+                <img class="logo-icon" src="./styles/images/logo_v2.webp">
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-btn" style="text-decoration: none;">TỐ GIÁC TỘI PHẠM</a>
+                <a href="wanted_list.html" class="nav-btn active" style="text-decoration: none;">TỘI PHẠM TRUY NÃ</a>
+            </nav>
+
+            <div style="width: 40px;"></div> <!-- Center -->
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-container">
+
+        <div class="wanted-header">
+            <i class="ph ph-identification-card"></i> HỒ SƠ ĐỐI TƯỢNG
+        </div>
+
+        <div id="detail-container" class="detail-container">
+            <!-- Sidebar -->
+            <div class="detail-sidebar">
+                <img id="detail-img" src="" alt="Ảnh đối tượng" class="detail-main-img">
+                <div class="detail-status" style="color: red; font-weight: bold; margin-bottom: 15px;">ĐANG CẬP NHẬT
+                </div>
+
+                <div class="detail-actions">
+                    <button id="btn-report" class="btn-report">
+                        <i class="ph ph-warning-circle"></i> BÁO TIN
+                    </button>
+                    <button class="btn" style="border: 1px solid #ccc; width: 100%;">
+                        <i class="ph ph-printer"></i> IN HỒ SƠ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="detail-content">
+                <h1 id="detail-name" style="color: #b91c1c; margin-top: 0;">Loading...</h1>
+
+                <h2>THÔNG TIN CHUNG</h2>
+                <table id="info-table" class="info-table">
+                    <!-- JS renders here -->
+                </table>
+
+                <h2>ĐẶC ĐIỂM NHẬN DẠNG</h2>
+                <p id="detail-identity">...</p>
+
+                <h2>MÔ TẢ CHI TIẾT SỰ VIỆC</h2>
+                <p id="detail-desc">...</p>
+
+                <h2>CAN TỘI</h2>
+                <p id="detail-crime" style="font-weight: bold; color: #b91c1c;">...</p>
+
+                <h2>HÌNH ẢNH KHÁC</h2>
+                <div class="other-images-grid">
+                    <img src="./styles/images/wanted_placeholder.png" class="other-img">
+                    <img src="./styles/images/wanted_placeholder.png" class="other-img">
+                    <img src="./styles/images/wanted_placeholder.png" class="other-img">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        Phiên bản hiện tại 0.0.2
+    </footer>
+
+    <script src="./styles/js/wanted.js"></script>
+</body>
+
+</html>
