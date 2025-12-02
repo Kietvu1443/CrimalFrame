@@ -17,7 +17,7 @@
     display: flex;
     flex-wrap: wrap;
     /* Allow items to wrap */
-    gap: 10px;
+    gap: 2rem;
     margin-bottom: 20px;
     padding: 15px;
     background-color: #f8f9fa;
@@ -225,6 +225,6 @@
     }
 
     .search-bar-container {
-        flex-direction: column;
+        flex-direction: row;
     }
 }

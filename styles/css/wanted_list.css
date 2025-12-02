@@ -345,6 +345,7 @@ textarea:focus {
     margin-bottom: 1rem;
 }
 
+
 ul.link-list {
     list-style: none;
 }
@@ -370,13 +371,5 @@ ul.link-list a:hover {
 @media (max-width: 768px) {
     .content-grid {
         grid-template-columns: 1fr;
-        /* Chuyển về 1 cột */
-    }
-
-    /* Đảo thứ tự: Form lên trên, Sidebar xuống dưới (Mặc định HTML là vậy rồi) */
-
-    .nav-btn:not(.active) {
-        display: none;
-        /* Ẩn bớt menu phụ trên mobile nếu cần */
     }
 }

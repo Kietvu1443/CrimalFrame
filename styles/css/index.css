@@ -69,7 +69,7 @@ header {
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 1rem;
+
 }
 
 .logo-icon {
@@ -84,7 +84,6 @@ header {
 
 .nav-links {
     display: flex;
-    gap: 1rem;
 }
 
 .nav-btn {
@@ -370,13 +369,5 @@ ul.link-list a:hover {
 @media (max-width: 768px) {
     .content-grid {
         grid-template-columns: 1fr;
-        /* Chuyển về 1 cột */
-    }
-
-    /* Đảo thứ tự: Form lên trên, Sidebar xuống dưới (Mặc định HTML là vậy rồi) */
-
-    .nav-btn:not(.active) {
-        display: none;
-        /* Ẩn bớt menu phụ trên mobile nếu cần */
     }
 }
