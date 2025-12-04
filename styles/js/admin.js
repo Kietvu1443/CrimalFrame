@@ -42,10 +42,10 @@ async function loadReports() {
       const date = new Date(r.timestamp).toLocaleString("vi-VN");
 
       let statusClass = "status-pending";
-      let statusText = "Chờ duyệt";
+      let statusText = "Đang xem xét";
       if (r.status === "approved") {
         statusClass = "status-approved";
-        statusText = "Đã duyệt";
+        statusText = "Đã thông qua";
       }
       if (r.status === "rejected") {
         statusClass = "status-rejected";
@@ -81,6 +81,24 @@ async function loadReports() {
   }
 }
 
+// --- HELPER: HIỂN THỊ THÔNG BÁO POPUP ---
+function showNotification(message, type = "success") {
+  const div = document.createElement("div");
+  div.className = `notification-popup ${type}`;
+
+  const icon =
+    type === "success"
+      ? '<i class="ph ph-check-circle"></i>'
+      : '<i class="ph ph-warning-circle"></i>';
+
+  div.innerHTML = `${icon} <span>${message}</span>`;
+  document.body.appendChild(div);
+
+  setTimeout(() => {
+    div.remove();
+  }, 3000);
+}
+
 async function updateStatus(id, status) {
   if (!confirm(`Bạn có chắc muốn chuyển trạng thái thành "${status}"?`)) return;
 
@@ -88,8 +106,9 @@ async function updateStatus(id, status) {
     await db.updateReportStatus(id, status);
     loadReports(); // Reload list
     closeModal();
+    showNotification(`Đã cập nhật trạng thái thành công!`, "success");
   } catch (error) {
-    alert("Lỗi cập nhật trạng thái: " + error);
+    showNotification("Lỗi cập nhật trạng thái: " + error, "error");
   }
 }
 

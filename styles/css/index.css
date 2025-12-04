@@ -365,9 +365,256 @@ ul.link-list a:hover {
     text-decoration: underline;
 }
 
+/* Upload Box Styles */
+.upload-box {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius);
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #f8fafc;
+    transition: background 0.2s;
+}
+
+.upload-second {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius);
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #f8fafc;
+    transition: background 0.2s;
+}
+
+.upload-second:hover {
+    background-color: #f1f5f9;
+    border-color: var(--secondary-color);
+}
+
+
+
+.upload-box:hover {
+    background-color: #f1f5f9;
+    border-color: var(--secondary-color);
+}
+
+/* Nút bấm */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-danger {
+    background-color: white;
+    color: var(--danger-color);
+    border: 1px solid #fecaca;
+}
+
+/* --- 5. XỬ LÝ ẨN DANH (CSS Logic) --- */
+.anonymous-toggle {
+    background-color: #eff6ff;
+    border: 1px solid #dbeafe;
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.anonymous-toggle label {
+    margin: 0;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+
+.anonymous-toggle input {
+    padding: 0.75rem;
+    resize: none;
+}
+
+/* Mô tả(descripton) */
+.Description {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.Description>div:first-child {
+    grid-column: 1 / -1;
+}
+
+.Description textarea {
+    width: 100%;
+    padding: 0.75rem;
+    resize: none;
+}
+
+.Description i {
+    font-size: 2rem;
+
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+}
+
+.Description span {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+
+
+
+/* Class này sẽ được JS thêm vào khi chọn ẩn danh */
+.disabled-section {
+    opacity: 0.5;
+    pointer-events: none;
+    /* Ngăn chặn click chuột */
+    filter: grayscale(100%);
+    user-select: none;
+}
+
+/* --- 6. SIDEBAR (BÊN PHẢI) --- */
+
+
+
+
+.sidebar-box {
+    margin-bottom: 1.5rem;
+}
+
+.hotline-box {
+    background-color: #fef2f2;
+    border-left: 4px solid var(--danger-color);
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.hotline-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--danger-color);
+    margin: 0.5rem 0;
+}
+
+.sidebar-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 1rem;
+}
+
+ul.link-list {
+    list-style: none;
+}
+
+ul.link-list li {
+    margin-bottom: 0.75rem;
+}
+
+ul.link-list a {
+    color: #2563eb;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+ul.link-list a:hover {
+    text-decoration: underline;
+}
+
 /* --- 7. RESPONSIVE (Mobile) --- */
 @media (max-width: 768px) {
     .content-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* --- 8. NOTIFICATION POPUP --- */
+.notification-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in 2.5s forwards;
+    max-width: 350px;
+    line-height: 1.4;
+}
+
+.notification-popup.success {
+    background-color: green;
+    /* Green */
+}
+
+.notification-popup.error {
+    background-color: red;
+    /* Red */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
     }
 }

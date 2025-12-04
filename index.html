@@ -43,16 +43,21 @@
                         <label>Chọn loại sự kiện</label>
                         <select id="incidentType" required>
                             <option value="">-- Chọn loại tội phạm --</option>
-                            <option value="trom-cap">Trộm cắp tài sản</option>
-                            <option value="lua-dao">Lừa đảo chiếm đoạt tài sản</option>
-                            <option value="bao-luc">Bạo lực / Cố ý gây thương tích</option>
-                            <option value="khac">Khác</option>
+                            <option value="Trộm cắp">Trộm cắp tài sản</option>
+                            <option value="Lừa đảo">Lừa đảo chiếm đoạt tài sản</option>
+                            <option value="Cố ý gây thương tích">Cố ý gây thương tích</option>
+                            <option value="Giết người">Giết người</option>
+                            <option value="Tổ chức đánh bạc">Tổ chức đánh bạc</option>
+                            <option value="Tội cướp giật tài sản">Tội cướp giật tài sản</option>
+                            <option value="Buôn bán hàng cấm">Buôn bán hàng cấm</option>
+                            <option value="Khác">Khác</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>Ngày tháng xảy ra</label>
-                        <input type="date" id="date" required>
+                        <input type="text" id="date" placeholder="ngày/tháng/năm" onfocus="(this.type='date')"
+                            onblur="(this.value ? this.type='date' : this.type='text')" required>
                     </div>
 
                     <div class="form-group">
@@ -171,7 +176,8 @@
                     <ul class="link-list">
                         <li><a href="./Link/thu_doan_lưa_dao.html"><i class="ph ph-arrow-square-out"></i> Các thủ đoạn
                                 lừa đảo mới</a></li>
-                        <li><a href="#"><i class="ph ph-arrow-square-out"></i> Tin tức an ninh trật tự</a></li>
+                        <li><a href="https://bocongan.gov.vn/chuyen-muc/tin-an-ninh-trat-tu-1753170263"><i
+                                    class="ph ph-arrow-square-out"></i> Tin tức an ninh trật tự</a></li>
                         <li><a href="https://thuvienphapluat.vn"><i class="ph ph-arrow-square-out"></i> Tra cứu luật
                                 pháp 2025</a></li>
                     </ul>

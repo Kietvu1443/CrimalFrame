@@ -42,6 +42,24 @@ let currentScreen = "loginScreen";
 const CRIME_PREVENTION_PAGE = "index.html";
 const TRANG_ADMIN = "admin.html";
 
+// --- HELPER: HIỂN THỊ THÔNG BÁO POPUP ---
+function showNotification(message, type = "success") {
+  const div = document.createElement("div");
+  div.className = `notification-popup ${type}`;
+
+  const icon =
+    type === "success"
+      ? '<i class="ph ph-check-circle"></i>'
+      : '<i class="ph ph-warning-circle"></i>';
+
+  div.innerHTML = `${icon} <span>${message}</span>`;
+  document.body.appendChild(div);
+
+  setTimeout(() => {
+    div.remove();
+  }, 3000);
+}
+
 // --- Hàm chuyển đổi màn hình ---
 function switchScreen(targetScreenId) {
   screens.forEach((screen) => {
@@ -112,7 +130,7 @@ loginSubmitButton.addEventListener("click", (e) => {
       "Tên đăng nhập hoặc Email và mật khẩu không được để trống";
     errorModal.style.display = "flex";
   } else {
-    alert("Đăng nhập thất bại (mô phỏng)!");
+    showNotification("Đăng nhập thất bại. Vui lòng kiểm tra lại!", "error");
   }
 });
 
@@ -156,7 +174,7 @@ hotlineLaterButton.addEventListener("click", () => {
 });
 
 hotlineCallButton.addEventListener("click", () => {
-  alert("Mô phỏng: Đang gọi đến tổng đài 1900.0368");
+  showNotification("Đang gọi đến tổng đài 1900.XXXX...", "success");
   hotlineModal.style.display = "none";
 });
 

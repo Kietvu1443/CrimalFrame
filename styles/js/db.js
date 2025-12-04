@@ -51,7 +51,6 @@ const db = {
         const transaction = this.db.transaction([STORE_NAME], "readwrite");
         const store = transaction.objectStore(STORE_NAME);
 
-        // Ensure report has timestamp and default status if not present
         if (!report.timestamp) report.timestamp = Date.now();
         if (!report.status) report.status = "pending";
 
@@ -108,13 +107,12 @@ const db = {
         const transaction = this.db.transaction([STORE_NAME], "readwrite");
         const store = transaction.objectStore(STORE_NAME);
 
-        // First get the item
         const getRequest = store.get(id);
 
         getRequest.onsuccess = () => {
           const data = getRequest.result;
           if (!data) {
-            reject("Report not found");
+            reject("Không tìm thấy báo cáo");
             return;
           }
 

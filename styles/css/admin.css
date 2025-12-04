@@ -145,3 +145,55 @@
     border-radius: 8px;
     object-fit: cover;
 }
+
+/* --- NOTIFICATION POPUP --- */
+.notification-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in 2.5s forwards;
+    max-width: 350px;
+    line-height: 1.4;
+}
+
+.notification-popup.success {
+    background-color: green;
+    /* Green */
+}
+
+.notification-popup.error {
+    background-color: red;
+    /* Red */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

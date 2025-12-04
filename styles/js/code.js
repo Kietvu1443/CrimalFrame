@@ -130,12 +130,20 @@ if (form) {
       hometown: "Chưa rõ",
       address: data.diaChi,
       crime:
-        data.loai === "trom-cap"
+        data.loai === "Trộm cắp"
           ? "Trộm cắp tài sản"
-          : data.loai === "lua-dao"
+          : data.loai === "Lừa đảo"
           ? "Lừa đảo chiếm đoạt tài sản"
-          : data.loai === "bao-luc"
+          : data.loai === "Cố ý gây thương tích"
           ? "Cố ý gây thương tích"
+          : data.loai === "Giết người"
+          ? "Giết người"
+          : data.loai === "Tổ chức đánh bạc"
+          ? "Tổ chức đánh bạc"
+          : data.loai === "Tội cướp giật tài sản"
+          ? "Tội cướp giật tài sản"
+          : data.loai === "Buôn bán hàng cấm"
+          ? "Buôn bán hàng cấm"
           : "Tội phạm khác",
       description: data.moTa,
       identity: data.identity,
@@ -147,22 +155,45 @@ if (form) {
       timestamp: Date.now(),
     };
 
+    // --- HELPER: HIỂN THỊ THÔNG BÁO POPUP ---
+    function showNotification(message, type = "success") {
+      const div = document.createElement("div");
+      div.className = `notification-popup ${type}`;
+
+      // Icon dựa trên loại thông báo
+      const icon =
+        type === "success"
+          ? '<i class="ph ph-check-circle"></i>'
+          : '<i class="ph ph-warning-circle"></i>';
+
+      div.innerHTML = `${icon} <span>${message}</span>`;
+      document.body.appendChild(div);
+
+      // Tự động xóa sau 3 giây (khớp với animation fadeOut)
+      setTimeout(() => {
+        div.remove();
+      }, 3000);
+    }
+
     try {
       await db.addReport(newReport);
 
       // Hiển thị thông báo
       if (data.anDanh) {
-        alert(
-          "Đã gửi báo cáo ẨN DANH thành công!\nThông tin đang chờ Admin duyệt trước khi hiển thị."
+        showNotification(
+          "Đã gửi báo cáo ẨN DANH thành công! Thông tin đang chờ Admin duyệt."
         );
       } else {
-        alert(
-          `Cảm ơn công dân ${data.hoTen} đã gửi báo cáo!\nThông tin đang chờ Admin duyệt trước khi hiển thị.`
+        showNotification(
+          `Cảm ơn công dân ${data.hoTen} đã gửi báo cáo! Thông tin đang chờ Admin duyệt.`
         );
       }
     } catch (error) {
       console.error("Lỗi khi lưu vào DB:", error);
-      alert("Có lỗi xảy ra khi lưu báo cáo. Vui lòng thử lại!");
+      showNotification(
+        "Có lỗi xảy ra khi lưu báo cáo. Vui lòng thử lại!",
+        "error"
+      );
       return;
     }
 

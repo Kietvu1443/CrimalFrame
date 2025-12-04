@@ -11,8 +11,8 @@ async function getCriminals() {
     // Gán nguồn cho dữ liệu tĩnh
     staticData = staticData.map((c) => ({
       ...c,
-      source: "police",
-      status: "ĐÃ XỬ LÍ",
+      source: "Công An",
+      status: "Đã xử lý",
     }));
 
     // 2. Lấy dữ liệu động từ IndexedDB (CHỈ LẤY ĐÃ DUYỆT)
@@ -27,6 +27,7 @@ async function getCriminals() {
     // Map trường DB sang trường UI nếu cần thiết
     dynamicData = dynamicData.map((c) => ({
       ...c,
+      source: "citizen",
       status: "ĐANG CẬP NHẬT (Tin dân báo)",
     }));
 
@@ -73,10 +74,14 @@ async function renderWantedList() {
     card.className = "wanted-card";
 
     // Badge cho nguồn tin
-    const sourceBadge =
-      c.source === "citizen"
-        ? '<span style="background: #eab308; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-left: 5px;">Tin dân báo</span>'
-        : "";
+    let sourceBadge = "";
+    if (c.source === "citizen") {
+      sourceBadge =
+        '<span style="background: #eab308; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-left: 5px;">Tin dân báo</span>';
+    } else if (c.source === "Công An") {
+      sourceBadge =
+        '<span style="background: Red; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-left: 5px;">Tin Công An</span>';
+    }
 
     card.innerHTML = `
             <div class="card-status">${c.status} ${sourceBadge}</div>
