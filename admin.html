@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Duyệt Tin Tố Giác</title>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="./styles/css/wanted_list.css">
     <link rel="stylesheet" href="./styles/css/admin.css">
 </head>
@@ -29,6 +30,51 @@
     </header>
 
     <main class="admin-container">
+        <!-- Dashboard Section -->
+        <div class="dashboard-section">
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>TỔNG TỘI PHẠM</h3>
+                        <div class="stat-value" id="total-criminals">0</div>
+                        <div class="stat-desc">tội phạm toàn quốc</div>
+                    </div>
+                    <div class="stat-icon-container text-blue">
+                        <i class="ph ph-users"></i>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>TỔNG TỘI PHẠM ĐANG XỬ LÍ</h3>
+                        <div class="stat-value text-green" id="total-revenue">0</div>
+                        <div class="stat-desc">đang chờ duyệt</div>
+                    </div>
+                    <div class="stat-icon-container text-green">
+                        <i class="ph ph-clock"></i>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>TỔNG TỘI PHẠM ĐÃ XỬ LÍ</h3>
+                        <div class="stat-value text-red" id="total-debt">0</div>
+                        <div class="stat-desc">đã được duyệt</div>
+                    </div>
+                    <div class="stat-icon-container text-red">
+                        <i class="ph ph-check-circle"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <div class="chart-header">
+                    <h3>PHÂN TÍCH SỐ LƯỢNG TỘI PHẠM</h3>
+                    <p>So sánh số lượng tội phạm đã sử lí</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="financeChart"></canvas>
+                </div>
+            </div>
+        </div>
         <div class="admin-header">
             <h2><i class="ph ph-gavel"></i> Duyệt Tin Tố Giác</h2>
             <div>

@@ -2,6 +2,7 @@ let currentFilter = "pending";
 
 document.addEventListener("DOMContentLoaded", () => {
   loadReports();
+  loadDashboardStats();
 });
 
 function filterStatus(status) {
@@ -178,3 +179,92 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+async function loadDashboardStats() {
+  try {
+    // Fetch reports from IndexedDB
+    const reports = await db.getAllReports();
+
+    // Calculate stats
+    const totalReports = reports.length;
+    const processingCount = reports.filter(
+      (r) => r.status === "pending"
+    ).length;
+    const processedCount = reports.filter(
+      (r) => r.status === "approved"
+    ).length;
+
+    // Update UI
+    document.getElementById("total-criminals").textContent = totalReports;
+    document.getElementById("total-revenue").textContent = processingCount;
+    document.getElementById("total-debt").textContent = processedCount;
+
+    // Render Chart
+    renderFinanceChart(processingCount, processedCount);
+  } catch (error) {
+    console.error("Error loading dashboard stats:", error);
+  }
+}
+
+function renderFinanceChart(processing, processed) {
+  const ctx = document.getElementById("financeChart").getContext("2d");
+
+  // Destroy existing chart if any (though here we just load once)
+  if (window.myFinanceChart) {
+    window.myFinanceChart.destroy();
+  }
+
+  window.myFinanceChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Tất cả thời gian"],
+      datasets: [
+        {
+          label: "Tổng tội phạm (Đang xử lí)",
+          data: [processing],
+          backgroundColor: "#22c55e",
+          barThickness: 50,
+          borderRadius: 4,
+        },
+        {
+          label: "Tổng tội phạm (Đã xử lí)",
+          data: [processed],
+          backgroundColor: "#ef4444",
+          barThickness: 50,
+          borderRadius: 4,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: {
+            color: "#f1f5f9",
+          },
+        },
+        x: {
+          grid: {
+            display: false,
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          position: "bottom",
+          labels: {
+            usePointStyle: true,
+            padding: 20,
+          },
+        },
+        tooltip: {
+          backgroundColor: "#1e293b",
+          padding: 12,
+          cornerRadius: 8,
+        },
+      },
+    },
+  });
+}
