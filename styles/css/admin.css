@@ -285,3 +285,9 @@
     height: 300px;
     width: 100%;
 }
+
+/* --- BODY OVERRIDE FOR ADMIN --- */
+body {
+    background: white !important;
+    background-image: none !important;
+}
