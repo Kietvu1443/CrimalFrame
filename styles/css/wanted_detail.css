@@ -46,66 +46,8 @@ footer {
 }
 
 /* --- 2. HEADER --- */
-header {
-    background-color: var(--white);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow);
-}
+/* Header styles moved to header.css */
 
-.header-container {
-    max-width: 1200px;
-    max-height: 120px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo-area {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.logo-icon {
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 2rem;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.nav-btn {
-    padding: 0.5rem 1rem;
-    border: none;
-    background: none;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-}
-
-.nav-btn.active {
-    color: #1d4ed8;
-    border-bottom: 2px solid #1d4ed8;
-}
-
-.nav-btn:hover:not(.active) {
-    background-color: #f1f5f9;
-    border-radius: 4px;
-}
 
 /* --- 3. LAYOUT CHÍNH --- */
 .main-container {

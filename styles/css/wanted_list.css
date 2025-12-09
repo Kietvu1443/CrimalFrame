@@ -16,6 +16,15 @@
     --radius: 8px;
     /* Độ bo tròn góc */
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    --glass-bg: rgba(40, 0, 0, 0.4);
+    /* Nền kính ám đỏ */
+    --glass-border: rgba(255, 50, 50, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+    --neon-glow: 0 0 20px rgba(255, 0, 0, 0.6);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+    --neon-glow: 0 0 20px rgba(255, 0, 0, 0.6);
+    --header-background: #384b6b;
 }
 
 * {
@@ -29,6 +38,14 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    background: url("../images/Background.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Sticky Footer Logic */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 hr {
@@ -46,71 +63,19 @@ footer {
 }
 
 /* --- 2. HEADER --- */
-header {
-    background-color: var(--white);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow);
-}
+/* Header styles moved to header.css */
 
-.header-container {
-    max-width: 1200px;
-    max-height: 120px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo-area {
-    display: flex;
-    align-items: center;
-}
-
-.logo-icon {
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 2rem;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.nav-btn {
-    padding: 0.5rem 1rem;
-    border: none;
-    background: none;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-}
-
-.nav-btn.active {
-    color: #1d4ed8;
-    border-bottom: 2px solid #1d4ed8;
-}
-
-.nav-btn:hover:not(.active) {
-    background-color: #f1f5f9;
-    border-radius: 4px;
-}
 
 /* --- 3. LAYOUT CHÍNH --- */
 .main-container {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
+    flex: 1;
+    width: 100%;
+    /* Flex column to push pagination to bottom */
+    display: flex;
+    flex-direction: column;
 }
 
 h1.page-title {
@@ -160,6 +125,7 @@ textarea {
     border-radius: var(--radius);
     font-size: 1rem;
     transition: border-color 0.2s;
+    color: black;
 }
 
 input:focus,
@@ -366,9 +332,21 @@ ul.link-list a:hover {
     text-decoration: underline;
 }
 
+
 /* --- 7. RESPONSIVE (Mobile) --- */
 @media (max-width: 768px) {
     .content-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* --- 8. PAGINATION (Sticky at bottom of Main) --- */
+#pagination {
+    margin-top: auto;
+    /* Push to bottom of flex container */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 20px 0;
 }

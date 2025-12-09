@@ -56,7 +56,7 @@ body {
     background: var(--bg);
 }
 
-/* Container一致 với HTML */
+/* Container一 với HTML */
 .container {
     width: min(1100px, 92%);
     margin: 0 auto;

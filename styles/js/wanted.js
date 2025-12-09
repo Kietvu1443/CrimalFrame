@@ -1,5 +1,7 @@
 // URL của file JSON database
 const DB_URL = "./database/criminals.json";
+let currentPage = 1;
+const itemsPerPage = 9;
 
 // Hàm lấy dữ liệu (Kết hợp JSON tĩnh + LocalStorage động)
 // Hàm lấy dữ liệu (Kết hợp JSON tĩnh + IndexedDB động)
@@ -65,11 +67,24 @@ async function renderWantedList() {
   if (filtered.length === 0) {
     grid.innerHTML =
       '<p style="grid-column: 1/-1; text-align: center;">Không tìm thấy kết quả nào.</p>';
+    renderPagination(0);
     return;
   }
 
+  // --- PHÂN TRANG ---
+  const totalItems = filtered.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  // Đảm bảo currentPage hợp lệ
+  if (currentPage > totalPages) currentPage = totalPages;
+  if (currentPage < 1) currentPage = 1;
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedItems = filtered.slice(startIndex, endIndex);
+
   // Hiển thị HTML
-  filtered.forEach((c) => {
+  paginatedItems.forEach((c) => {
     const card = document.createElement("div");
     card.className = "wanted-card";
 
@@ -103,6 +118,68 @@ async function renderWantedList() {
         `;
     grid.appendChild(card);
   });
+
+  renderPagination(totalPages);
+}
+
+// Hàm render nút phân trang
+function renderPagination(totalPages) {
+  const paginationContainer = document.getElementById("pagination");
+  if (!paginationContainer) return;
+
+  paginationContainer.innerHTML = "";
+
+  if (totalPages <= 1) return;
+
+  // Nút Previous
+  const prevBtn = document.createElement("button");
+  prevBtn.className = "btn";
+  prevBtn.style.border = "1px solid #ccc";
+  prevBtn.textContent = "Trước";
+  prevBtn.disabled = currentPage === 1;
+  prevBtn.onclick = () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderWantedList();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+  paginationContainer.appendChild(prevBtn);
+
+  // Các nút số trang
+  for (let i = 1; i <= totalPages; i++) {
+    const pageBtn = document.createElement("button");
+    pageBtn.className = "btn";
+    pageBtn.style.border = "1px solid #ccc";
+    pageBtn.textContent = i;
+
+    if (i === currentPage) {
+      pageBtn.style.backgroundColor = "var(--primary-color)";
+      pageBtn.style.color = "white";
+    }
+
+    pageBtn.onclick = () => {
+      currentPage = i;
+      renderWantedList();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+    paginationContainer.appendChild(pageBtn);
+  }
+
+  // Nút Next
+  const nextBtn = document.createElement("button");
+  nextBtn.className = "btn";
+  nextBtn.style.border = "1px solid #ccc";
+  nextBtn.textContent = "Sau";
+  nextBtn.disabled = currentPage === totalPages;
+  nextBtn.onclick = () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderWantedList();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+  paginationContainer.appendChild(nextBtn);
 }
 
 // Hàm render trang chi tiết
@@ -194,18 +271,23 @@ document.addEventListener("DOMContentLoaded", () => {
     renderWantedList();
 
     // Event listeners cho search
+    const resetAndRender = () => {
+      currentPage = 1;
+      renderWantedList();
+    };
+
     document
       .getElementById("searchInput")
-      .addEventListener("input", renderWantedList);
+      .addEventListener("input", resetAndRender);
     document
       .getElementById("areaInput")
-      .addEventListener("input", renderWantedList);
+      .addEventListener("input", resetAndRender);
     document
       .getElementById("crimeFilter")
-      .addEventListener("change", renderWantedList);
+      .addEventListener("change", resetAndRender);
     document
       .getElementById("sourceFilter")
-      .addEventListener("change", renderWantedList);
+      .addEventListener("change", resetAndRender);
   }
 
   if (document.getElementById("detail-container")) {
