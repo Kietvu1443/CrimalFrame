@@ -38,34 +38,7 @@
         color: #333;
     }
 
-    /* Thanh Tìm kiếm */
-    .search-bar {
-        padding: 15px;
-    }
 
-    .search-input-group {
-        position: relative;
-    }
-
-    .search-input {
-        width: 100%;
-        padding: 12px 15px;
-        padding-right: 40px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        font-size: 16px;
-        box-sizing: border-box;
-        background-color: #f9f9f9;
-    }
-
-    .search-icon {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #888;
-        font-size: 20px;
-    }
 
     /* Thanh Tab */
     .tab-bar {
@@ -175,9 +148,7 @@
             font-size: 24px;
         }
 
-        .search-bar {
-            padding: 20px 30px;
-        }
+
 
         .tab-bar {
             padding: 0 30px 15px 30px;
