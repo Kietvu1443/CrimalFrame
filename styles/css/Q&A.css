@@ -156,3 +156,57 @@
         max-height: 500px;
         padding-top: 10px;
     }
+
+    /* Responsive cho PC */
+    @media (min-width: 768px) {
+        .faq-container {
+            max-width: 800px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-top {
+            padding: 25px 30px;
+        }
+
+        .screen-title {
+            font-size: 24px;
+        }
+
+        .search-bar {
+            padding: 20px 30px;
+        }
+
+        .tab-bar {
+            padding: 0 30px 15px 30px;
+        }
+
+        .tab-item {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        .tab-item:hover {
+            background-color: #e0e0e0;
+        }
+
+        .tab-item.active:hover {
+            background-color: #b71c1c;
+            /* Giữ màu đỏ khi hover vào tab active */
+        }
+
+        .faq-content {
+            padding: 0 30px 50px 30px;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            padding: 10px 0;
+        }
+
+        .faq-answer {
+            font-size: 16px;
+        }
+    }
